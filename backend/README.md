@@ -10,7 +10,7 @@
 
 ## About the project
 
-Lorem ipsum
+This part of the project implements the backend services via a RESTful API using Java Spring
 
 ## Prerequisites
 
