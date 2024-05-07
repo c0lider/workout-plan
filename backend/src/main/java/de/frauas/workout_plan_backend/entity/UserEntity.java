@@ -6,21 +6,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 
 @Entity
-public class user_entity {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String email_address;
+    private String emailAddress;
     private String username;
     private String password;
 
-    public user_entity() {}
+    public UserEntity() {}
 
-    public user_entity(int id, String username, String email_address, String password) {
+    public UserEntity(int id, String username, String emailAddress, String password) {
         this.id = id;
         this.username = username;
-        this.email_address = email_address;
+        this.emailAddress = emailAddress;
         this.password = password;
 
     }
@@ -33,12 +33,12 @@ public class user_entity {
         this.id = id;
     }
 
-    public String getEmail_address() {
-        return email_address;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmail_address(String email_address) {
-        this.email_address = email_address;
+    public void setEmailAddress(String email_address) {
+        this.emailAddress = email_address;
     }
 
     public String getUsername() {

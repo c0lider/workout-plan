@@ -1,16 +1,16 @@
 package de.frauas.workout_plan_backend.controller;
 
-import de.frauas.workout_plan_backend.repository.user_repository;
+import de.frauas.workout_plan_backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import de.frauas.workout_plan_backend.entity.user_entity;
 
 @RestController
 public class HelloController {
 
-    @Autowired user_repository repository;
+    @Autowired
+    UserRepository repository;
     private static final String template = "Hello, %s!";
 
     @GetMapping("/hello")

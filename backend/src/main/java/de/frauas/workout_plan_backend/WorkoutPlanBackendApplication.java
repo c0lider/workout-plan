@@ -1,7 +1,7 @@
 package de.frauas.workout_plan_backend;
 
-import de.frauas.workout_plan_backend.entity.user_entity;
-import de.frauas.workout_plan_backend.repository.user_repository;
+import de.frauas.workout_plan_backend.entity.UserEntity;
+import de.frauas.workout_plan_backend.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,13 +17,13 @@ public class WorkoutPlanBackendApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(user_repository repository) {
+	CommandLineRunner runner(UserRepository repository) {
 		return args -> {
 
-			user_entity user1 = new user_entity(1, "LeMaemo", "max.moritz@interia.pl", "12345");
+			UserEntity user1 = new UserEntity(1, "LeMaemo", "max.moritz@interia.pl", "12345");
 			repository.save(user1);
 
-			user_entity savedUser = repository.findById(user1.getId()).orElseThrow(NoSuchElementException::new);
+			UserEntity savedUser = repository.findById(user1.getId()).orElseThrow(NoSuchElementException::new);
 		};
 
 	}
