@@ -43,6 +43,5 @@
     -   Generating website texts
     -   for designing
     -   image manipulation
-    -   
 > - frontend components class diagram (communication between components)
 > - source of images and assets!!
