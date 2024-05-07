@@ -11,7 +11,7 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String emailAddress;
+    private String emailAddress;    //email
     private String username;
     private String password;
 

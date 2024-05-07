@@ -21,7 +21,7 @@ public class WorkoutPlanBackendApplication {
 		return args -> {
 
 			UserEntity user1 = new UserEntity(1, "LeMaemo", "max.moritz@interia.pl", "12345");
-			repository.save(user1);
+			repository.save(user1); //save in repository
 
 			UserEntity savedUser = repository.findById(user1.getId()).orElseThrow(NoSuchElementException::new);
 		};

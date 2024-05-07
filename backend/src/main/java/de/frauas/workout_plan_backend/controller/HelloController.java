@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @Autowired
+    @Autowired  //automatisch
     UserRepository repository;
     private static final String template = "Hello, %s!";
 

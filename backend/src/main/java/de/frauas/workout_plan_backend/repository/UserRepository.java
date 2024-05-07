@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<UserEntity, Long> {
 
-    UserEntity save(UserEntity user);
+    UserEntity save(UserEntity user); // save users
     Optional<UserEntity> findById(int id);
 
 }
