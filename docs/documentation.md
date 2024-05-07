@@ -40,3 +40,5 @@
 
 -   Describe in which places ai was used
     -   Generating website texts
+    -   for designing
+    -   image manipulation
