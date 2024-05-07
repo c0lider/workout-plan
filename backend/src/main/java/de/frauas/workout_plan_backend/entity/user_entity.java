@@ -17,11 +17,12 @@ public class user_entity {
 
     public user_entity() {}
 
-    public user_entity(String password, String username, String email_address, int id) {
-        this.password = password;
+    public user_entity(int id, String username, String email_address, String password) {
+        this.id = id;
         this.username = username;
         this.email_address = email_address;
-        this.id = id;
+        this.password = password;
+
     }
 
     public int getId() {
