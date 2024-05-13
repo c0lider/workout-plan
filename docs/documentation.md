@@ -35,6 +35,7 @@
     -   Advantages (Testing)
 
 -   Kanban board
+-   "agile approach", weekly meetings, status updates
 
 -   Git structure (branch from main -> PR)
 
