@@ -2,6 +2,10 @@ package de.frauas.workout_plan_backend.entity;
 
 import jakarta.persistence.*;
 
+import de.frauas.workout_plan_backend.entity.UserSettingsEntity;
+
+import java.util.List;
+
 @Entity
 public class UserEntity {
 
@@ -17,6 +21,9 @@ public class UserEntity {
 
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "userEntity")
+    private List<UserSettingsEntity> userSettingsEntityList;
 
     public UserEntity() {}
 
