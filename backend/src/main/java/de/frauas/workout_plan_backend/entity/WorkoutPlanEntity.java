@@ -3,6 +3,8 @@ package de.frauas.workout_plan_backend.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 
 public class WorkoutPlanEntity {
@@ -15,8 +17,13 @@ public class WorkoutPlanEntity {
     @Column(nullable = false, unique = true)
     private String workoutName;
 
-    @ManyToOne
+
+
     private WorkoutPlanEntity workoutPlanEntity;
+
+    @ManyToMany(mappedBy = "exerciseEntity")
+    private List<ExerciseEntity> exerciseEntityList;
+
 
     public WorkoutPlanEntity() {}
 

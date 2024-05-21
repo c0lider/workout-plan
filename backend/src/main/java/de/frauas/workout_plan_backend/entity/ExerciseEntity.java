@@ -2,6 +2,8 @@ package de.frauas.workout_plan_backend.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class ExerciseEntity {
 
@@ -15,6 +17,14 @@ public class ExerciseEntity {
 
     @Column(nullable = false, unique = true)
     private String youtubeLink;
+
+
+    @ManyToMany(mappedBy = "workoutPlanEntity")
+    private List<WorkoutPlanEntity> workoutPlanEntityList;
+
+    private ExerciseEntity exerciseEntity;
+
+
 
 
     public ExerciseEntity() {
