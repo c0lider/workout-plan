@@ -12,10 +12,13 @@ public class UserSettingsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
+
+    @Column(nullable = false, unique = false)
     private boolean darkMode = true;
+    @Column(nullable = false, unique = false)
     private String preferredUnits;
 
-    @ManyToOne
+    @OneToOne
     private UserEntity userEntity;
     public UserSettingsEntity() {
     }

@@ -1,5 +1,6 @@
 package de.frauas.workout_plan_backend.controller;
 
+import de.frauas.workout_plan_backend.entity.UserSettingsEntity;
 import de.frauas.workout_plan_backend.repository.ExerciseRepository;
 import de.frauas.workout_plan_backend.repository.UserRepository;
 import de.frauas.workout_plan_backend.repository.UserSettingsRepository;
@@ -20,6 +21,8 @@ public class HelloController {
     @Autowired
     UserSettingsRepository usersettingsRepository;
 
+    UserSettingsEntity userSettings;
+
     private static final String template = "Hello, %s!";
 
     @GetMapping("/hello")
@@ -35,5 +38,11 @@ public class HelloController {
     @GetMapping("/exercises")
     public Iterable<?> AllSavedExercises() {
         return exerciseRepository.findAll();
+    }
+
+    @GetMapping("/settings")
+    public UserSettingsEntity ShowSettings() {
+        userSettings = new UserSettingsEntity(1,true,"kg");
+        return userSettings;
     }
 }
