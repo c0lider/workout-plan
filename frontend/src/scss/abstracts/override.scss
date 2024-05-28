@@ -1,0 +1,16 @@
+@use '../abstracts/colors.scss' as *;
+
+:root {
+    --main-bg-color: $baltic-sea;
+    --main-text-color: $silk;
+}
+
+:root {
+    --bs-body-bg: var(--main-bg-color);
+    --bs-body-color: var(--main-text-color);
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
