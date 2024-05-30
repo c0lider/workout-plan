@@ -7,27 +7,27 @@ const Footer = () => {
                 <ul className="nav justify-content-center border-bottom pb-3 mb-3 border-secondary">
                     <li className="nav-item">
                         <a href="#" className="nav-link px-2 text-secondary">
-                            Home
+                            <i className="fab fa-facebook"> Facebook</i>
                         </a>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link px-2 text-secondary">
-                            Features
+                            <i className="fab fa-github"> Github</i>
                         </a>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link px-2 text-secondary">
-                            Pricing
+                            <i className="fab fa-instagram"> Instagram</i>
                         </a>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link px-2 text-secondary">
-                            FAQs
+                            <i className="fab fa-twitter"> X</i>
                         </a>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link px-2 text-secondary">
-                            About
+                            <i className="fab fa-youtube"> Youtube</i>
                         </a>
                     </li>
                 </ul>
