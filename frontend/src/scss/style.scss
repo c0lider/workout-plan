@@ -1,6 +1,8 @@
-@use 'abstracts';
-@use 'base';
-@use 'components';
-@use 'layout';
-@use 'pages';
-@use 'themes';
+@import'abstracts';
+@import'base';
+@import'components';
+@import'layout';
+@import'pages';
+@import'themes';
+
+@import 'bootstrap/scss/bootstrap.scss';
