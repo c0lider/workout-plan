@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const Home = () => {
     return (
@@ -20,9 +20,7 @@ const Home = () => {
                         of your fitness destiny. Begin your journey today and
                         embark on the path to a healthier, stronger you!
                     </div>
-                    <button className="btn btn-primary mt-2 fs-4">
-                        Get Started
-                    </button>
+                    <Button className="mt-2 fs-4">Get Started</Button>
                 </div>
             </div>
         </>
