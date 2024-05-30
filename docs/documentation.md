@@ -35,6 +35,7 @@
     -   Advantages (Testing)
 
 -   Kanban board
+-   "agile approach", weekly meetings, status updates
 
 -   Git structure (branch from main -> PR)
 
@@ -42,3 +43,6 @@
     -   Generating website texts
     -   for designing
     -   image manipulation
+    -   
+> - frontend components class diagram (communication between components)
+> - source of images and assets!!
