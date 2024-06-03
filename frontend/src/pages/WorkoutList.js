@@ -35,7 +35,7 @@ const WorkoutList = () => {
                 <ListGroup as="ul">
                     <ListGroup.Item as="li" className="workout-teaser" key={0}>
                         <a
-                            href="/workouts/new"
+                            href="/workouts/create"
                             className="text-decoration-none text-primary"
                         >
                             <i className="fa-solid fa-circle-plus me-4"></i> Add

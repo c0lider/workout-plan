@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import List from "./pages/WorkoutList";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import WorkoutDetails from './pages/WorkoutDetails';
 import Layout from "./layout/Layout";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/workouts" element={<List />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/workouts/:id" element={<WorkoutDetails />} />
       </Routes>
     </Layout>
   );
