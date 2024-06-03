@@ -1,0 +1,17 @@
+@use '../abstracts/' as *;
+@use 'bg-transparent-info' as *;
+@use 'bootstrap' as *;
+
+.workout-teaser {
+    height: 200px;
+    font-size: 2rem;
+    box-shadow: 10px 15px 20px 0 rgba($baltic-sea, 0.2);
+    @extend .m-4;
+    @extend .rounded-5;
+    @extend .workout-teaser;
+    @extend .d-flex;
+    @extend .align-items-center;
+    @extend .justify-content-center;
+    @extend .bg-transparent-info;
+    @extend .border-0;
+}
