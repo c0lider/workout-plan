@@ -1,0 +1,10 @@
+@use 'bootstrap' as *;
+
+.footer-link-list {
+    @extend .nav;
+    @extend .justify-content-center;
+    @extend .border-bottom;
+    @extend .pb-3;
+    @extend .mb-3;
+    @extend .border-info;
+}

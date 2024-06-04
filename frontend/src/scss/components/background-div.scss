@@ -1,8 +1,16 @@
-.background-div {
-    background-image: url('../../images/landing-page.png');
+@mixin background-div($image-url) {
+    background-image: url($image-url);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     aspect-ratio: 1.61;
+}
+
+.landing-page-background {
+    @include background-div('../../images/landing-page.png');
+}
+
+.workout-list-background {
+    @include background-div('../../images/workout-list-page.png');
 }

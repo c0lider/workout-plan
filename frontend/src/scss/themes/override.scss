@@ -1,8 +1,8 @@
 @use "../abstracts" as *;
 
 $theme-colors: (
-    "primary": $baltic-sea,
-    "secondary": $silk,
+    "primary": $custom-black,
+    "secondary": $baltic-sea,
     "success": $silk,
     "info": $silk,
     "warning": $silk,
@@ -11,4 +11,7 @@ $theme-colors: (
     "dark": $silk,
 );
 
+$body-color: $custom-black;
 $body-bg: $baltic-sea;
+
+$font-family-base: Quicksand, sans-serif;

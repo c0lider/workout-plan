@@ -1,0 +1,8 @@
+@use 'bootstrap' as *;
+
+.footer-link {
+    @extend .nav-link;
+    @extend .px-2;
+    @extend .text-info;
+    @extend .me-4;
+}
