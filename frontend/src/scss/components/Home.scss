@@ -1,0 +1,38 @@
+.home {
+  .container-side {
+    .left-side {
+      display: flex;
+      align-items: right;
+      flex: 3;
+    }
+
+    .right-side {
+      display: flex;
+      align-items: center;
+      flex: 1;
+
+      .btn {
+        margin-left: 10px;
+        background-color: rgba(
+          211,
+          211,
+          211,
+          0.8
+        ); // Light grey with transparency
+        border: none;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        &:hover {
+          background-color: rgba(
+            176,
+            176,
+            176,
+            0.8
+          ); // Darker grey with transparency
+          color: #fff;
+        }
+      }
+    }
+  }
+}
