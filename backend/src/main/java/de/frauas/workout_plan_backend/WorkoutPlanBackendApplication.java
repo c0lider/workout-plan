@@ -2,6 +2,7 @@ package de.frauas.workout_plan_backend;
 
 import de.frauas.workout_plan_backend.entity.ExerciseEntity;
 import de.frauas.workout_plan_backend.entity.UserEntity;
+import de.frauas.workout_plan_backend.entity.UserService;
 import de.frauas.workout_plan_backend.entity.UserSettingsEntity;
 import de.frauas.workout_plan_backend.repository.ExerciseRepository;
 import de.frauas.workout_plan_backend.repository.UserRepository;
@@ -26,6 +27,8 @@ public class WorkoutPlanBackendApplication {
 			UserEntity user1 = new UserEntity(1, "LeMaemo", "max.moritz@interia.pl", "12345");
 			UserEntity user2 = new UserEntity(2, "LeBrob", "Lemax.Lemoritz@interia.pl", "54321");
 			ExerciseEntity exercise1 = new ExerciseEntity(1,"Bankdrücken","https://www.youtube.com/shorts/4HrLBMqGmcc");
+			UserService userService = new UserService();
+			user1 = userService.registerNewUserAccount();
 			userRepository.save(user1); //save in repository
 			userRepository.save(user2);
 			exerciseRepository.save(exercise1);
