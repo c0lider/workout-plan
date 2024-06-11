@@ -2,10 +2,6 @@ package de.frauas.workout_plan_backend.entity;
 
 import jakarta.persistence.*;
 
-import de.frauas.workout_plan_backend.entity.UserSettingsEntity;
-
-import java.util.List;
-
 @Entity
 public class UserEntity {
 
@@ -63,6 +59,10 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserEntity registerNewUserAccount() {
+        return new UserEntity(23, "max.mustermann@gmail.com", "xMaxiMusti", "12345");
     }
 
 
