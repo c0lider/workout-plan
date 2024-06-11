@@ -62,7 +62,7 @@ public class UserEntity {
     }
 
     public UserEntity registerNewUserAccount() {
-        return new UserEntity(23, "max.mustermann@gmail.com", "xMaxiMusti", "12345");
+        return new UserEntity(23, "MaxiMusti", "max.mustermannn@gmail.com", "12345");
     }
 
 
