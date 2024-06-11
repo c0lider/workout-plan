@@ -24,17 +24,17 @@ public class WorkoutPlanBackendApplication {
 	CommandLineRunner runner(UserRepository userRepository, ExerciseRepository exerciseRepository) {
 		return args -> {
 
-			UserEntity user1 = new UserEntity(1, "LeMaemo", "max.moritz@interia.pl", "12345");
+			UserEntity user = new UserEntity();
 			UserEntity user2 = new UserEntity(2, "LeBrob", "Lemax.Lemoritz@interia.pl", "54321");
 			ExerciseEntity exercise1 = new ExerciseEntity(1,"Bankdrücken","https://www.youtube.com/shorts/4HrLBMqGmcc");
 			UserService userService = new UserService();
-			user1 = userService.registerNewUserAccount();
-			userRepository.save(user1); //save in repository
+			user = userService.registerNewUserAccount();
+			userRepository.save(user);
 			userRepository.save(user2);
 			exerciseRepository.save(exercise1);
 
 
-			UserEntity savedUser = userRepository.findById(user1.getId()).orElseThrow(NoSuchElementException::new);
+			UserEntity savedUser = userRepository.findById(user.getId()).orElseThrow(NoSuchElementException::new);
 			ExerciseEntity savedExercises = exerciseRepository.findById(exercise1.getId()).orElseThrow(NoSuchElementException::new);
 		};
 

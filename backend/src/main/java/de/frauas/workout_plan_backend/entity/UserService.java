@@ -8,14 +8,7 @@ public class UserService {
     private UserRepository repository;
 
     public UserEntity registerNewUserAccount() {
-
-        UserEntity user = new UserEntity();
-        user.setEmailAddress("max.mustermann@gmail.com"); //Hier Getter-Methoden um den User zu speichern
-        user.setUsername("xMaxiMusti");
-        user.setPassword("12345");
-
-        return repository.save(user);
-
+        return new UserEntity(23, "max.mustermann@gmail.com", "xMaxiMusti", "12345");
     }
 
 
