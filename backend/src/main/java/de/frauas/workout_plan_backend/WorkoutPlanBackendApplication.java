@@ -25,8 +25,8 @@ public class WorkoutPlanBackendApplication {
 			UserEntity user = new UserEntity();
 			UserEntity user2 = new UserEntity(2, "LeBrob", "Lemax.Lemoritz@interia.pl", "54321");
 			ExerciseEntity exercise1 = new ExerciseEntity(1,"Bankdrücken","https://www.youtube.com/shorts/4HrLBMqGmcc");
-
-			userRepository.save(user.registerNewUserAccount());
+			user.registerNewUserAccount();
+			userRepository.save(user);
 			userRepository.save(user2);
 			exerciseRepository.save(exercise1);
 

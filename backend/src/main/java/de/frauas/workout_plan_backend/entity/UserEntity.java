@@ -62,7 +62,8 @@ public class UserEntity {
     }
 
     public UserEntity registerNewUserAccount() {
-        return new UserEntity(23, "MaxiMusti", "max.mustermannn@gmail.com", "12345");
+        UserEntity user = new UserEntity(23, "MaxiMusti", "max.mustermannn@gmail.com", "12345");
+        return user;
     }
 
 
