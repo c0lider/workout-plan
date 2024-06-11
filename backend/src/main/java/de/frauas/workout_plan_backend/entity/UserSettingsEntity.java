@@ -18,12 +18,8 @@ public class UserSettingsEntity {
     @Column(nullable = false, unique = false)
     private String preferredUnits;
 
-
-    @OneToOne
-    private UserEntity userEntity;
     public UserSettingsEntity() {
     }
-
 
     public UserSettingsEntity(int id, boolean darkMode, String preferredUnits) {
         this.id = id;

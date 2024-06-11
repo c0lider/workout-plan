@@ -22,14 +22,6 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
-
-    @OneToOne(mappedBy = "userEntity")
-    private List<UserSettingsEntity> userSettingsEntityList;
-
-    @OneToMany(mappedBy = "workoutPlanEntity")
-    private List<WorkoutPlanEntity> workoutPlanEntityList;
-
-
     public UserEntity() {}
 
     public UserEntity(int id, String username, String emailAddress, String password) {

@@ -17,14 +17,6 @@ public class WorkoutPlanEntity {
     @Column(nullable = false, unique = true)
     private String workoutName;
 
-
-
-    private WorkoutPlanEntity workoutPlanEntity;
-
-    @ManyToMany(mappedBy = "exerciseEntity")
-    private List<ExerciseEntity> exerciseEntityList;
-
-
     public WorkoutPlanEntity() {}
 
     public WorkoutPlanEntity(int id, String workoutName) {
