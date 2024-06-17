@@ -6,6 +6,8 @@ import Register from './pages/Register';
 import WorkoutDetails from './pages/WorkoutDetails';
 import Layout from './layout/Layout';
 import NotFound from './pages/NotFound';
+import ExerciseDetail from './pages/ExerciseDetail';
+import ExerciseList from './pages/ExerciseList';
 
 function App() {
     return (
@@ -16,6 +18,11 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/workouts/:id" element={<WorkoutDetails />} />
+                <Route path="/exercises/:id" element={<ExerciseDetail />} />
+                <Route
+                    path="/workouts/:id/add-exercise"
+                    element={<ExerciseList />}
+                />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Layout>

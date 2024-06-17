@@ -1,0 +1,11 @@
+@use 'bootstrap' as *;
+
+.exercise-teaser {
+    @extend .my-1;
+    height: 180px;
+}
+
+.exercise-teaser.row.col {
+    @extend .my-1;
+    height: 180px;  
+}

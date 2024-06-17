@@ -15,3 +15,17 @@
     @extend .bg-transparent-info;
     @extend .border-0;
 }
+
+.animate-new {
+    animation: fadeIn .5s linear;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
