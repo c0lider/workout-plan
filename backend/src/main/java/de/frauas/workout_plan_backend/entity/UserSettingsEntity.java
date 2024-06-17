@@ -18,9 +18,9 @@ public class UserSettingsEntity {
     @Column(nullable = false, unique = false)
     private String preferredUnits;
 
-
     @OneToOne
     private UserEntity userEntity;
+
     public UserSettingsEntity() {
     }
 

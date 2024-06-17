@@ -7,8 +7,7 @@ import java.util.Optional;
 
 public interface ExerciseRepository extends CrudRepository<ExerciseEntity, Long> {
 
-    ExerciseEntity save (ExerciseEntity exercise);
-    ExerciseEntity saveAll (ExerciseEntity exercise);
+    ExerciseEntity save(ExerciseEntity exercise);
+
     Optional<ExerciseEntity> findById(int id);
-    Iterable<ExerciseEntity> findAllById(int id);
 }

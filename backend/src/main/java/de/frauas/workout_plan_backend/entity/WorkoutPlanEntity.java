@@ -14,15 +14,12 @@ public class WorkoutPlanEntity {
 
     private int id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = false)
     private String workoutName;
 
 
-
-    private WorkoutPlanEntity workoutPlanEntity;
-
-    @ManyToMany(mappedBy = "exerciseEntity")
-    private List<ExerciseEntity> exerciseEntityList;
+    @ManyToOne
+    private UserEntity userEntity;
 
 
     public WorkoutPlanEntity() {}

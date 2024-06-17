@@ -19,14 +19,6 @@ public class ExerciseEntity {
     private String youtubeLink;
 
 
-    @ManyToMany(mappedBy = "workoutPlanEntity")
-    private List<WorkoutPlanEntity> workoutPlanEntityList;
-
-    private ExerciseEntity exerciseEntity;
-
-
-
-
     public ExerciseEntity() {
     }
 

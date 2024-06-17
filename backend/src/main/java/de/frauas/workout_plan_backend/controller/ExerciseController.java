@@ -10,22 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloController {
+public class ExerciseController {
 
+    @Autowired
+    ExerciseRepository exerciseRepository;
 
-
-
-
-
-    private static final String template = "Hello, %s!";
-
-    @GetMapping("/hello")
-    public String status(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return String.format(template, name);
+    @GetMapping("/exercises")
+    public Iterable<?> AllSavedExercises() {
+        return exerciseRepository.findAll();
     }
-
-
-
-
-
 }
