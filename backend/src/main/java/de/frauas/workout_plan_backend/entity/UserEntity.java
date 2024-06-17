@@ -61,10 +61,9 @@ public class UserEntity {
         this.password = password;
     }
 
-    public UserEntity registerNewUserAccount() {
+    /*public void registerNewUserAccount() {
         UserEntity user = new UserEntity(23, "MaxiMusti", "max.mustermannn@gmail.com", "12345");
-        return user;
-    }
+    }*/
 
 
 

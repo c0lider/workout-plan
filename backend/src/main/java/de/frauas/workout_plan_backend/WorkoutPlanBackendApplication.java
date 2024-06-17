@@ -2,8 +2,12 @@ package de.frauas.workout_plan_backend;
 
 import de.frauas.workout_plan_backend.entity.ExerciseEntity;
 import de.frauas.workout_plan_backend.entity.UserEntity;
+import de.frauas.workout_plan_backend.entity.UserSettingsEntity;
+import de.frauas.workout_plan_backend.entity.WorkoutPlanEntity;
 import de.frauas.workout_plan_backend.repository.ExerciseRepository;
 import de.frauas.workout_plan_backend.repository.UserRepository;
+import de.frauas.workout_plan_backend.repository.UserSettingsRepository;
+import de.frauas.workout_plan_backend.repository.WorkoutPlanRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,21 +23,24 @@ public class WorkoutPlanBackendApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(UserRepository userRepository, ExerciseRepository exerciseRepository) {
+	CommandLineRunner runner(UserRepository userRepository, ExerciseRepository exerciseRepository,
+							 UserSettingsRepository userSettingsRepository, WorkoutPlanRepository workoutPlanRepository) {
 		return args -> {
 
-			UserEntity user = new UserEntity();
-			UserEntity user2 = new UserEntity(2, "LeBrob", "Lemax.Lemoritz@interia.pl", "54321");
+			UserEntity user = new UserEntity(1,"bsp1000", "bsp1000@gmail.com", "1000");
+			UserSettingsEntity userSettings = new UserSettingsEntity(1, true, "kg");
 			ExerciseEntity exercise1 = new ExerciseEntity(1,"Bankdrücken","https://www.youtube.com/shorts/4HrLBMqGmcc");
-			UserEntity newUser = new UserEntity();
-			newUser = user.registerNewUserAccount();
-			userRepository.save(newUser);
-			userRepository.save(user2);
-			exerciseRepository.save(exercise1);
+			WorkoutPlanEntity workoutPlan = new WorkoutPlanEntity(1,"Monday");
 
+			userRepository.save(user);
+			userSettingsRepository.save(userSettings);
+			exerciseRepository.save(exercise1);
+			workoutPlanRepository.save(workoutPlan);
 
 			UserEntity savedUser = userRepository.findById(user.getId()).orElseThrow(NoSuchElementException::new);
+			UserSettingsEntity savedSettings = userSettingsRepository.findById(userSettings.getId()).orElseThrow(NoSuchElementException::new);
 			ExerciseEntity savedExercises = exerciseRepository.findById(exercise1.getId()).orElseThrow(NoSuchElementException::new);
+			WorkoutPlanEntity savedWorkoutPlan = workoutPlanRepository.findById(workoutPlan.getId()).orElseThrow(NoSuchElementException::new);
 		};
 
 	}
