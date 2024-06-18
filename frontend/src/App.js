@@ -8,6 +8,7 @@ import Layout from './layout/Layout';
 import NotFound from './pages/NotFound';
 import ExerciseDetail from './pages/ExerciseDetail';
 import ExerciseList from './pages/ExerciseList';
+import AboutUs from './pages/AboutUs';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     path="/workouts/:id/add-exercise"
                     element={<ExerciseList />}
                 />
+                <Route path="/about" element={<AboutUs />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Layout>
