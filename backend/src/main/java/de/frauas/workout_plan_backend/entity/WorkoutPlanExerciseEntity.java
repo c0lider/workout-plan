@@ -2,6 +2,8 @@ package de.frauas.workout_plan_backend.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class WorkoutPlanExerciseEntity {
 
@@ -16,10 +18,12 @@ public class WorkoutPlanExerciseEntity {
     @Column(unique = false)
     private int duration; //in seconds
 
+    @ManyToOne
+    ExerciseEntity exerciseEntity;
+
     @OneToOne
-    UserEntity user;
-    @OneToOne
-    WorkoutPlanEntity workoutPlan;
+    @JoinColumn(name = "workout_plan_id")
+    WorkoutPlanEntity workoutPlanEntity;
 
     public WorkoutPlanExerciseEntity() {
     }

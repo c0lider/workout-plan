@@ -25,6 +25,7 @@ public class UserEntity {
     @OneToMany
     private List<WorkoutPlanEntity> workoutPlanEntityList;
 
+
     public UserEntity() {}
 
     public UserEntity(int id, String username, String emailAddress, String password) {

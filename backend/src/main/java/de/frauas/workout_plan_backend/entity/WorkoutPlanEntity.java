@@ -18,10 +18,6 @@ public class WorkoutPlanEntity {
     private String workoutName;
 
 
-    @ManyToOne
-    private UserEntity userEntity;
-
-
     public WorkoutPlanEntity() {}
 
     public WorkoutPlanEntity(int id, String workoutName) {

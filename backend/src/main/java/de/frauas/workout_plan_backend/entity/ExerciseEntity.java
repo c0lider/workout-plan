@@ -18,6 +18,8 @@ public class ExerciseEntity {
     @Column(nullable = false, unique = true)
     private String youtubeLink;
 
+    @OneToMany(mappedBy = "exerciseEntity")
+    List<WorkoutPlanExerciseEntity> workoutPlanExercises;
 
     public ExerciseEntity() {
     }
