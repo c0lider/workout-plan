@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
-import NotFoundImage from '../images/404.png';
+import NotFoundImage from '../../../images/404.png';
 
 const NotFound = () => {
     return (

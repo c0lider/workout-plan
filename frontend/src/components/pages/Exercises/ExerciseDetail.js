@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import GoBack from '../components/GoBack';
+import GoBack from '../../common/BackButton/BackButton';
 import { FormLabel, Container, Row, Col, Image } from 'react-bootstrap';
 
 function ExerciseDetail() {

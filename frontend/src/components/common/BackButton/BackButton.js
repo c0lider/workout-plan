@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-function GoBack() {
+function BackButton() {
     const navigate = useNavigate();
 
     const handleGoBack = () => {
@@ -23,4 +23,4 @@ function GoBack() {
     );
 }
 
-export default GoBack;
+export default BackButton;

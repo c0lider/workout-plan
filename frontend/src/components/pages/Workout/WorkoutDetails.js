@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import GoBack from '../components/GoBack';
+import GoBack from '../../common/BackButton/BackButton';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Toast, ToastContainer } from 'react-bootstrap';

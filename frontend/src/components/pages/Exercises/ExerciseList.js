@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import GoBack from '../components/GoBack';
+import GoBack from '../../common/BackButton/BackButton';
 import {
     Container,
     Row,

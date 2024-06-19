@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import List from './pages/WorkoutList';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import WorkoutDetails from './pages/WorkoutDetails';
-import Layout from './layout/Layout';
-import NotFound from './pages/NotFound';
-import ExerciseDetail from './pages/ExerciseDetail';
-import ExerciseList from './pages/ExerciseList';
-import AboutUs from './pages/AboutUs';
+import Home from './components/pages/Home/Home';
+import List from './components/pages/Workout/WorkoutList';
+import Login from './components/pages/Login/Login';
+import Register from './components/pages/Register/Register';
+import WorkoutDetails from './components/pages/Workout/WorkoutDetails';
+import Layout from './components/layout/Layout/Layout';
+import NotFound from './components/pages/NotFound/NotFound';
+import ExerciseDetail from './components/pages/Exercises/ExerciseDetail';
+import ExerciseList from './components/pages/Exercises/ExerciseList';
+import AboutUs from './components/pages/AboutUs/AboutUs';
 
 function App() {
     return (
