@@ -10,4 +10,5 @@ public interface ExerciseRepository extends CrudRepository<ExerciseEntity, Long>
     ExerciseEntity save(ExerciseEntity exercise);
 
     Optional<ExerciseEntity> findById(int id);
+
 }

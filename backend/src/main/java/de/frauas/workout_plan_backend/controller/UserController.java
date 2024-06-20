@@ -27,6 +27,6 @@ public class UserController {
     @PostMapping("/users")
     public String saveUser(@RequestBody UserEntity user) {
         userRepository.save(user);
-        return "User saved";
+        return "User saved!";
     }
 }
