@@ -11,6 +11,6 @@ public interface WorkoutPlanRepository extends CrudRepository<WorkoutPlanEntity,
 
     WorkoutPlanEntity save(WorkoutPlanEntity workoutPlan);
 
-    Optional<WorkoutPlanEntity> findById(int id);
+    WorkoutPlanEntity findById(int id);
 
 }

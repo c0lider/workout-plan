@@ -19,7 +19,7 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/users")
-    public UserEntity AllSavedUsers(@RequestParam(value = "username", defaultValue = "user") String name) {
+    public UserEntity SavedUsers(@RequestParam(value = "username", defaultValue = "user") String name) {
         UserEntity ourUser = userRepository.findByUsername(name);
         return ourUser;
     }
