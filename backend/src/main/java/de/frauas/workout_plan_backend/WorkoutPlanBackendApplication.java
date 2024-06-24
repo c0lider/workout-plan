@@ -39,7 +39,7 @@ public class WorkoutPlanBackendApplication {
 
 			UserEntity savedUser = userRepository.findById(user1.getId()).orElseThrow(NoSuchElementException::new);
 			ExerciseEntity savedExercises = exerciseRepository.findById(exercise1.getId()).orElseThrow(NoSuchElementException::new);
-			WorkoutPlanEntity savedWorkout = workoutPlanRepository.findById(workoutPlan.getId()).orElseThrow(NoSuchElementException::new);
+			WorkoutPlanEntity savedWorkout = workoutPlanRepository.findById(workoutPlan.getId());
 			UserSettingsEntity savedSettings = userSettingsRepository.findById(userSettings.getId()).orElseThrow(NoSuchElementException::new);
 			WorkoutPlanExerciseEntity savedExercisesInWorkout = workoutPlanExerciseRepository.findById(planExerciseEntity.getId()).orElseThrow(NoSuchElementException::new);
 		};
