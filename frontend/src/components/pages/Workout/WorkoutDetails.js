@@ -24,6 +24,7 @@ const WorkoutDetails = () => {
             id: 1,
             sets: 3,
             reps: 10,
+            weight: 135,
             order: 100,
         },
         {
@@ -31,6 +32,7 @@ const WorkoutDetails = () => {
             id: 2,
             sets: 3,
             reps: 12,
+            weight: 25,
             order: 2,
         },
         {
@@ -38,6 +40,7 @@ const WorkoutDetails = () => {
             id: 3,
             sets: 4,
             reps: 8,
+            weight: 0,
             order: 3,
         },
         {
@@ -45,6 +48,7 @@ const WorkoutDetails = () => {
             id: 4,
             sets: 4,
             reps: 10,
+            weight: 185,
             order: 4,
         },
         {
@@ -52,6 +56,7 @@ const WorkoutDetails = () => {
             id: 5,
             sets: 3,
             reps: 8,
+            weight: 225,
             order: 5,
         },
         {
@@ -59,6 +64,7 @@ const WorkoutDetails = () => {
             id: 6,
             sets: 3,
             reps: 10,
+            weight: 0,
             order: 6,
         },
     ];
@@ -125,6 +131,19 @@ const WorkoutDetails = () => {
         console.log(exerciseId, sets);
     };
 
+    const onWeightChange = (weight, exerciseId) => {
+        const updatedExercise = {
+            ...exercises.find((ex) => ex.id === exerciseId),
+            weight: weight,
+        };
+        const updatedExercises = exercises.map((ex) =>
+            ex.id === exerciseId ? updatedExercise : ex
+        );
+        setExercises(updatedExercises);
+
+        console.log(exerciseId, weight);
+    };
+
     return (
         <>
             <div className="workout-list-background p-5">
@@ -147,6 +166,7 @@ const WorkoutDetails = () => {
                                 exercise={exercise}
                                 onSetsChange={onSetsChange}
                                 onRepsChange={onRepsChange}
+                                onWeightChange={onWeightChange}
                             />
                         ))}
                     <AddTeaser text="Add Exercise" onClick={addExercise} />

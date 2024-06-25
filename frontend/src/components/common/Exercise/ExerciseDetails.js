@@ -3,7 +3,12 @@ import EmptyTeaser from '../Teasers/EmptyTeaser';
 import AmountInput from '../AmountInput/AmountInput';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 
-const ExerciseDetails = ({ exercise, onSetsChange, onRepsChange }) => {
+const ExerciseDetails = ({
+    exercise,
+    onSetsChange,
+    onRepsChange,
+    onWeightChange,
+}) => {
     return (
         <EmptyTeaser>
             <Col xs={2} className="d-flex justify-content-center">
@@ -27,7 +32,7 @@ const ExerciseDetails = ({ exercise, onSetsChange, onRepsChange }) => {
             <Col xs={4}>
                 <Container fluid>
                     <Row>
-                        <Col xs={6}>
+                        <Col xs={4}>
                             <AmountInput
                                 text="sets"
                                 exercise={exercise}
@@ -36,12 +41,21 @@ const ExerciseDetails = ({ exercise, onSetsChange, onRepsChange }) => {
                             />
                         </Col>
 
-                        <Col xs={6}>
+                        <Col xs={4}>
                             <AmountInput
                                 text="reps"
                                 exercise={exercise}
                                 value={exercise.reps}
                                 onChange={onRepsChange}
+                            />
+                        </Col>
+
+                        <Col xs={4}>
+                            <AmountInput
+                                text="weight"
+                                exercise={exercise}
+                                value={exercise.weight}
+                                onChange={onWeightChange}
                             />
                         </Col>
                     </Row>
