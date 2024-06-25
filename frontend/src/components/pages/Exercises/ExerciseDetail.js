@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import GoBack from '../../common/BackButton/BackButton';
-import { FormLabel, Container, Row, Col, Image } from 'react-bootstrap';
+import { FormLabel, Container, Row, Col, Image, Ratio } from 'react-bootstrap';
+import Headline from '../../common/Headline/Headline';
 
 function ExerciseDetail() {
+    // Needed for the URL parameter
     const { id } = useParams();
     const [exercise, setExercise] = useState('');
 
@@ -27,20 +29,23 @@ function ExerciseDetail() {
         <div className="workout-list-background p-5">
             <GoBack />
 
+            <Headline title={exercise.name} />
+
             <Container>
-                <Row>
-                    <Col xs={12}>
-                        <h1 className="text-center text-info fw-bold p-3 bg-secondary border-info border-1 border rounded-1">
-                            {exercise.name}
-                        </h1>
-                    </Col>
-                </Row>
                 <Row className="mt-5">
                     <Col xs={12} md={6}>
-                        <Image
-                            src="https://static.strengthlevel.com/images/exercises/bench-press/bench-press-800.jpg"
-                            thumbnail
-                        />
+                        <Ratio aspectRatio="16x9">
+                            <iframe
+                                width="560"
+                                height="315"
+                                src="https://www.youtube.com/embed/t3f2L7NRRUY?si=znOlJlqcdjdrm8AA"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                            ></iframe>
+                        </Ratio>
                     </Col>
                     <Col
                         xs={12}

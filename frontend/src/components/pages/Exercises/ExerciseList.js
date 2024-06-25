@@ -2,15 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import GoBack from '../../common/BackButton/BackButton';
-import {
-    Container,
-    Row,
-    Col,
-    Image,
-    Modal,
-    Button,
-    Form,
-} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import ExerciseIntro from '../../common/Exercise/ExerciseIntro';
+import AddExerciseModal from '../../common/Modals/AddExerciseModal';
+import Notification from '../../common/Notification/Notification';
+import AddTeaser from '../../common/Teasers/AddTeaser';
+import Headline from '../../common/Headline/Headline';
 
 const ExerciseList = () => {
     const { id } = useParams();
@@ -19,6 +16,9 @@ const ExerciseList = () => {
     const [currentExerciseId, setCurrentExerciseId] = useState(-1);
     const [sets, setSets] = useState(0);
     const [reps, setReps] = useState(0);
+    const [showToast, setShowToast] = useState(false);
+
+    const toastMessage = 'Exercise added to routine';
 
     const dummyExercises = [
         {
@@ -145,13 +145,13 @@ const ExerciseList = () => {
 
     const addExerciseToRoutine = (exerciseId) => {
         setCurrentExerciseId(exerciseId);
+        console.log('add exercise ', exerciseId, ' to routine ', id);
         setShowModal(true);
     };
 
     const handleClose = () => setShowModal(false);
 
     const submitExercise = () => {
-        setShowModal(false);
         // TODO: implement post to server
         console.log(
             'add exercise ',
@@ -164,123 +164,63 @@ const ExerciseList = () => {
             reps,
             ' reps'
         );
+
+        toggleShowToast();
     };
 
     // TODO: create ticket and implement
     const createExercise = () => {};
 
+    const toggleShowToast = () => setShowToast(!showToast);
+
+    const updateSets = (amount) => {
+        setSets(amount);
+    };
+
+    const updateReps = (amount) => {
+        setReps(amount);
+    };
+
     return (
         <>
             <div className="workout-list-background p-5">
                 <GoBack />
-                <Container>
-                    <Row>
-                        <Col xs={12}>
-                            <h1 className="text-center text-info fw-bold p-3 bg-secondary border-info border-1 border rounded-1">
-                                Add Exercises to your routine
-                                {/* TODO workout name */}
-                            </h1>
-                        </Col>
-                    </Row>
-                </Container>
+
+                <Headline title="Add Exercises to your routine" />
+
                 <Container>
                     {exercises
                         .sort((a, b) => a.order - b.order)
                         .map((exercise) => (
-                            <Row
-                                className="workout-teaser animate-new"
+                            <ExerciseIntro
                                 key={exercise.id}
-                            >
-                                <Col
-                                    xs={2}
-                                    className="d-flex justify-content-center"
-                                >
-                                    <Image
-                                        src="https://static.strengthlevel.com/images/exercises/bench-press/bench-press-800.jpg"
-                                        thumbnail
-                                        width={150}
-                                        height={150}
-                                        className=""
-                                    ></Image>
-                                </Col>
-                                <Col xs={8}>
-                                    <a
-                                        href={`/exercises/${exercise.id}`}
-                                        className="text-decoration-none text-primary fs-2"
-                                    >
-                                        {exercise.name}
-                                    </a>
-                                </Col>
-                                <Col
-                                    xs={2}
-                                    className="d-flex justify-content-center cursor-pointer"
-                                    onClick={() =>
-                                        addExerciseToRoutine(exercise.id)
-                                    }
-                                >
-                                    <i className="fa-solid fa-circle-plus"></i>
-                                </Col>
-                            </Row>
+                                exercise={exercise}
+                                onAddExercise={addExerciseToRoutine}
+                            />
                         ))}
-                    <Row className="workout-teaser" key={0}>
-                        <Col xs={12} className="d-flex justify-content-center">
-                            <a
-                                onClick={() => createExercise()}
-                                className="text-decoration-none text-primary"
-                            >
-                                <i className="fa-solid fa-circle-plus me-4"></i>{' '}
-                                Create exercise
-                            </a>
-                        </Col>
-                    </Row>
+
+                    <AddTeaser
+                        text="Create exercise"
+                        onClick={createExercise}
+                    />
                 </Container>
             </div>
 
-            <Modal show={showModal} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Exercise Details</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="text-secondary bg-info">
-                    <Container>
-                        <Row>
-                            <Col xs={12}>
-                                <Form>
-                                    <Form.Group controlId="formNumber1">
-                                        <Form.Label>Sets</Form.Label>
-                                        <Form.Control
-                                            type="number"
-                                            placeholder="Enter number 1"
-                                            value={sets}
-                                            onChange={(e) =>
-                                                setSets(e.target.value)
-                                            }
-                                        />
-                                    </Form.Group>
-                                    <Form.Group controlId="formNumber2">
-                                        <Form.Label>Reps</Form.Label>
-                                        <Form.Control
-                                            type="number"
-                                            placeholder="Enter number 2"
-                                            value={reps}
-                                            onChange={(e) =>
-                                                setReps(e.target.value)
-                                            }
-                                        />
-                                    </Form.Group>
-                                </Form>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cancel
-                    </Button>
-                    <Button variant="info" onClick={submitExercise}>
-                        Add Exercise
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+            <AddExerciseModal
+                sets={sets}
+                reps={reps}
+                showModal={showModal}
+                updateReps={updateReps}
+                updateSets={updateSets}
+                submitExercise={submitExercise}
+                handleClose={handleClose}
+            />
+
+            <Notification
+                message={toastMessage}
+                showToast={showToast}
+                onClose={toggleShowToast}
+            />
         </>
     );
 };

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Row, Button } from 'react-bootstrap';
+import { Col, Container, Row, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-function BackButton() {
+const BackButton = () => {
     const navigate = useNavigate();
 
     const handleGoBack = () => {
@@ -12,15 +12,15 @@ function BackButton() {
     return (
         <Container fluid className="my-2">
             <Row>
-                <div className="col-12">
+                <Col xs={12}>
                     <Button onClick={handleGoBack} variant="info">
                         <i className="fa-solid fa-less-than me-2 fs-3"></i>
                         <i className="fa-solid fa-less-than me-2 fs-3"></i>
                     </Button>
-                </div>
+                </Col>
             </Row>
         </Container>
     );
-}
+};
 
 export default BackButton;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import AddTeaser from '../../common/Teasers/AddTeaser';
+import TextTeaser from '../../common/Teasers/TextTeaser';
 
 // TODO: remove dummy data and fetch data from backend
 const WorkoutList = () => {
@@ -48,31 +49,18 @@ const WorkoutList = () => {
     return (
         <div className="workout-list-background p-5">
             <Container>
-                <ListGroup as="ul">
-                    <ListGroup.Item as="li" className="workout-teaser" key={0}>
+                <AddTeaser text="Add routine" onClick={addRoutine} />
+
+                {workouts.map((workout) => (
+                    <TextTeaser key={workout.id}>
                         <a
-                            onClick={() => addRoutine()}
+                            href={`/workouts/${workout.id}`}
                             className="text-decoration-none text-primary"
                         >
-                            <i className="fa-solid fa-circle-plus me-4"></i> Add
-                            routine
+                            {workout.name}
                         </a>
-                    </ListGroup.Item>
-                    {workouts.map((workout) => (
-                        <ListGroup.Item
-                            as="li"
-                            className="workout-teaser animate-new"
-                            key={workout.id}
-                        >
-                            <a
-                                href={`/workouts/${workout.id}`}
-                                className="text-decoration-none text-primary"
-                            >
-                                {workout.name}
-                            </a>
-                        </ListGroup.Item>
-                    ))}
-                </ListGroup>
+                    </TextTeaser>
+                ))}
             </Container>
         </div>
     );
