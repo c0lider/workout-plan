@@ -10,27 +10,30 @@ import ExerciseDetail from './components/pages/Exercises/ExerciseDetail';
 import ExerciseList from './components/pages/Exercises/ExerciseList';
 import AboutUs from './components/pages/AboutUs/AboutUs';
 import CreateExercise from './components/pages/Exercises/CreateExercise';
+import Profile from "./pages/Profile";
+import PersonalSetting from "./pages/PersonalSetting";
 
 function App() {
-    return (
-        <Layout>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/workouts" element={<List />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/workouts/:id" element={<WorkoutDetails />} />
-                <Route path="/exercises/add" element={<CreateExercise />} />
-                <Route path="/exercises/:id" element={<ExerciseDetail />} />
-                <Route
-                    path="/workouts/:id/add-exercise"
-                    element={<ExerciseList />}
-                />
-                <Route path="/about" element={<AboutUs />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-        </Layout>
-    );
+   return (
+      <Layout>
+         <Routes className="alert accres">
+            <Route path="/" className="" element={<Home />} />
+            <Route path="/workouts" element={<List />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<PersonalSetting />} />
+             <Route path="/workouts/:id" element={<WorkoutDetails />} />
+             <Route path="/exercises/add" element={<CreateExercise />} />
+             <Route path="/exercises/:id" element={<ExerciseDetail />} />
+             <Route
+                 path="/workouts/:id/add-exercise"
+                 element={<ExerciseList />}
+             />
+             <Route path="/about" element={<AboutUs />} />
+             <Route path="*" element={<NotFound />} />
+         </Routes>
+      </Layout>
+   );
 }
 
 export default App;

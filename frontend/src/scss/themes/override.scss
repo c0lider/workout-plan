@@ -1,18 +1,18 @@
 @use "../abstracts" as *;
 
 $theme-colors: (
-    "primary": $custom-black,
-    "secondary": $baltic-sea,
-    "success": $silk,
-    "info": $silk,
-    "warning": $silk,
-    "danger": $silk,
-    "light": $silk,
-    "dark": $silk,
+   "primary": $custom-black,
+   "secondary": $baltic-sea,
+   "success": $silk,
+   "info": $silk,
+   "warning": $silk,
+   "danger": $silk,
+   "light": $silk,
+   "dark": $silk,
 );
 
 $body-color: $custom-black;
-$body-bg: $baltic-sea;
+// $body-bg: $baltic-sea;
 
 $border-color: $silk;
 
