@@ -66,7 +66,7 @@ docker start workout-plan-container
    - Navigate to the `backend` directory and configure the PostgreSQL database connection in the `application.properties` file.
    - Run the backend Spring Boot application using your IDE or the following command:
      ```bash
-     ./mvnw spring-boot:run
+     ./gradlew spring-boot:run
      ```
 
 4. **Frontend Setup**:
