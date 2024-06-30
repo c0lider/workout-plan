@@ -25,7 +25,7 @@ const ExerciseDetails = ({
                     href={`/exercises/${exercise.id}`}
                     className="text-decoration-none text-primary fs-2"
                 >
-                    {exercise.name}
+                    {exercise.exerciseEntity.exerciseName}
                 </a>
             </Col>
 

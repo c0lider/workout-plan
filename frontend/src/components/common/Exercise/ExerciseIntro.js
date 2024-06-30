@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col, Ratio } from 'react-bootstrap';
 
 const ExerciseIntro = ({ exercise, onAddExercise }) => {
     const handleClick = (id) => {
@@ -9,19 +9,24 @@ const ExerciseIntro = ({ exercise, onAddExercise }) => {
     return (
         <Row className="workout-teaser animate-new">
             <Col xs={2} className="d-flex justify-content-center">
-                <Image
-                    src="https://static.strengthlevel.com/images/exercises/bench-press/bench-press-800.jpg"
-                    thumbnail
-                    width={150}
-                    height={150}
-                />
+                <Ratio aspectRatio="16x9">
+                    <iframe
+                        width="150"
+                        height="150"
+                        src={exercise.youtubeLink}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                    ></iframe>
+                </Ratio>
             </Col>
             <Col xs={8}>
                 <a
                     href={`/exercises/${exercise.id}`}
                     className="text-decoration-none text-primary fs-2"
                 >
-                    {exercise.name}
+                    {exercise.exerciseName}
                 </a>
             </Col>
             <Col

@@ -2,10 +2,6 @@ package de.frauas.workout_plan_backend.entity;
 
 import jakarta.persistence.*;
 
-import de.frauas.workout_plan_backend.entity.UserSettingsEntity;
-
-import java.util.List;
-
 @Entity
 public class UserEntity {
 
@@ -14,7 +10,7 @@ public class UserEntity {
     private int id;
 
     @Column(nullable = false, unique = true)
-    private String emailAddress;    //email
+    private String emailAddress; // email
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -22,11 +18,8 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany
-    private List<WorkoutPlanEntity> workoutPlanEntityList;
-
-
-    public UserEntity() {}
+    public UserEntity() {
+    }
 
     public UserEntity(int id, String username, String emailAddress, String password) {
         this.id = id;
@@ -37,7 +30,6 @@ public class UserEntity {
     }
 
     public int getId() {
-
         return id;
     }
 
@@ -68,7 +60,4 @@ public class UserEntity {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
 }

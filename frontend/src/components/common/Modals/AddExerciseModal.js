@@ -4,15 +4,16 @@ import Notification from '../Notification/Notification';
 import { useState } from 'react';
 
 const AddExerciseModal = ({
-    sets,
-    reps,
+    exerciseId,
+    workoutPlanId,
     showModal,
-    updateReps,
-    updateSets,
-    submitExercise,
-    handleClose,
+    setShowModal,
 }) => {
+    const [sets, setSets] = useState(0);
+    const [reps, setReps] = useState(0);
+
     const [showToast, setShowToast] = useState(false);
+    const toastMessage = 'Exercise added to routine';
 
     const toggleShowToast = () => setShowToast(!showToast);
 
@@ -21,8 +22,42 @@ const AddExerciseModal = ({
     };
 
     const onSubmit = () => {
-        submitExercise(sets, reps);
+        submitExercise();
         handleClose();
+    };
+
+    const submitExercise = () => {
+        console.log(
+            JSON.stringify({
+                exerciseId: exerciseId,
+                sets: sets,
+                reps: reps,
+                weight: 0,
+            })
+        );
+
+        fetch(`http://localhost:8080/api/workouts/${workoutPlanId}/add`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                exerciseId: exerciseId,
+                sets: sets,
+                reps: reps,
+                weight: 0,
+            }),
+        }).then((response) => {
+            if (response.ok) {
+                toggleShowToast();
+            } else {
+                console.error('Error:', response);
+            }
+        });
+    };
+
+    const handleClose = () => {
+        setShowModal(false);
     };
 
     return (
@@ -44,7 +79,7 @@ const AddExerciseModal = ({
                                             className="text-info"
                                             value={sets}
                                             onChange={(e) =>
-                                                updateSets(e.target.value)
+                                                setSets(e.target.value)
                                             }
                                         />
                                     </Form.Group>
@@ -56,7 +91,7 @@ const AddExerciseModal = ({
                                             className="text-info"
                                             value={reps}
                                             onChange={(e) =>
-                                                updateReps(e.target.value)
+                                                setReps(e.target.value)
                                             }
                                         />
                                     </Form.Group>
