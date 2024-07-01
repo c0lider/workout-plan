@@ -8,7 +8,6 @@ import SaveButton from '../../common/SaveButton/SaveButton';
 import WorkoutTitle from '../../common/WorkoutTitle/WorkoutTitle';
 import ExerciseDetails from '../../common/Exercise/ExerciseDetails';
 
-// TODO: save on every change?
 const WorkoutDetails = () => {
     const { id } = useParams();
     const [exercises, setExercises] = useState([]);
@@ -18,89 +17,38 @@ const WorkoutDetails = () => {
     const navigate = useNavigate();
     const [showToast, setShowToast] = useState(false);
 
-    const dummyExercises = [
-        {
-            name: 'Bench Press',
-            id: 1,
-            sets: 3,
-            reps: 10,
-            weight: 135,
-            order: 100,
-        },
-        {
-            name: 'Dumbbell Flyes',
-            id: 2,
-            sets: 3,
-            reps: 12,
-            weight: 25,
-            order: 2,
-        },
-        {
-            name: 'Tricep Dips',
-            id: 3,
-            sets: 4,
-            reps: 8,
-            weight: 0,
-            order: 3,
-        },
-        {
-            name: 'Squat',
-            id: 4,
-            sets: 4,
-            reps: 10,
-            weight: 185,
-            order: 4,
-        },
-        {
-            name: 'Deadlift',
-            id: 5,
-            sets: 3,
-            reps: 8,
-            weight: 225,
-            order: 5,
-        },
-        {
-            name: 'Pull-ups',
-            id: 6,
-            sets: 3,
-            reps: 10,
-            weight: 0,
-            order: 6,
-        },
-    ];
-
     useEffect(() => {
-        // TODO: replace with real data
-
-        setExercises([...dummyExercises]);
-        setWorkoutName(`Workout ${id}`);
-
-        // fetch(`http://localhost:8000/api/workouts/${id}/`)
-        //     .then((response) => response.json())
-        //     .then((data) => setWorkout(data))
-        //     .catch((error) => console.error('Error:', error));
+        fetch(`http://localhost:8080/api/workouts/${id}`)
+            .then((response) => response.json())
+            // .then((data) => console.log(data.exercises))
+            .then((data) => {
+                setExercises(data.exercises);
+                setWorkoutName(data.workoutName);
+            })
+            .catch((error) => console.error('Error:', error));
     }, []);
 
     const addExercise = () => {
-        const newExercise = {
-            name: 'New Exercise',
-            id: 1000000,
-            sets: '-',
-            reps: '-',
-            order: 1000000,
-        };
-
-        setExercises([newExercise, ...exercises]);
-
-        setTimeout(() => {
-            navigate(`/workouts/${id}/add-exercise`);
-        }, 500);
+        navigate(`/workouts/${id}/add-exercise`);
     };
 
     const toggleShowToast = () => setShowToast(!showToast);
 
     const saveWorkout = () => {
-        // if error set toast message to error message
+        // TODO:
+
+        fetch(`http://localhost:8080/api/workouts/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                workoutName: workoutName,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+
         toggleShowToast();
         console.log(workoutName);
     };
@@ -151,25 +99,24 @@ const WorkoutDetails = () => {
 
                 <WorkoutTitle
                     setText={setWorkoutName}
-                    placeholder={workoutName}
+                    placeholder="Enter workout name"
                     text={workoutName}
                 />
 
                 <SaveButton onClick={saveWorkout} />
 
                 <Container>
-                    {exercises
-                        .sort((a, b) => a.order - b.order)
-                        .map((exercise) => (
+                    {exercises &&
+                        exercises.map((exercise) => (
                             <ExerciseDetails
-                                key={exercise.id}
+                                key={exercise.exerciseEntity.id}
                                 exercise={exercise}
                                 onSetsChange={onSetsChange}
                                 onRepsChange={onRepsChange}
                                 onWeightChange={onWeightChange}
                             />
                         ))}
-                    <AddTeaser text="Add Exercise" onClick={addExercise} />
+                    <AddTeaser text="Add Exercise/s" onClick={addExercise} />
                 </Container>
             </div>
 

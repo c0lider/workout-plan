@@ -2,8 +2,6 @@ package de.frauas.workout_plan_backend.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 public class WorkoutPlanExerciseEntity {
 
@@ -13,26 +11,25 @@ public class WorkoutPlanExerciseEntity {
 
     @Column(unique = false)
     private int reps;
+
     @Column(unique = false)
     private int sets;
+
     @Column(unique = false)
-    private int duration; //in seconds
+    private int weight;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "exercise_id")
     ExerciseEntity exerciseEntity;
-
-    @OneToOne
-    @JoinColumn(name = "workout_plan_id")
-    WorkoutPlanEntity workoutPlanEntity;
 
     public WorkoutPlanExerciseEntity() {
     }
 
-    public WorkoutPlanExerciseEntity(int id, int reps, int sets, int duration) {
+    public WorkoutPlanExerciseEntity(int id, int reps, int sets, int weight) {
         this.id = id;
         this.reps = reps;
         this.sets = sets;
-        this.duration = duration;
+        this.weight = weight;
     }
 
     public int getId() {
@@ -59,12 +56,19 @@ public class WorkoutPlanExerciseEntity {
         this.sets = sets;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
+    public ExerciseEntity getExerciseEntity() {
+        return exerciseEntity;
+    }
+
+    public void setExerciseEntity(ExerciseEntity exerciseEntity) {
+        this.exerciseEntity = exerciseEntity;
+    }
 }
