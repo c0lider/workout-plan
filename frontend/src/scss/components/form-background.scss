@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+@use "bootstrap" as *;
+@use "bg-transparent-info" as *;
+
+.form-background {
+   @extend .bg-transparent-info;
+   @extend .rounded-5;
+   @extend .justify-content-center;
+   @extend .align-items-center;
+   @extend .border-5;
+}

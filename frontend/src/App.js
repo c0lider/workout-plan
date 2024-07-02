@@ -10,6 +10,7 @@ import ExerciseDetail from './components/pages/Exercises/ExerciseDetail';
 import ExerciseList from './components/pages/Exercises/ExerciseList';
 import AboutUs from './components/pages/AboutUs/AboutUs';
 import CreateExercise from './components/pages/Exercises/CreateExercise';
+import PersonalSetting from './components/layout/PersonalSettings/PersonalSettings';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/workouts" element={<List />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<PersonalSetting />} />
                 <Route path="/workouts/:id" element={<WorkoutDetails />} />
                 <Route path="/exercises/add" element={<CreateExercise />} />
                 <Route path="/exercises/:id" element={<ExerciseDetail />} />

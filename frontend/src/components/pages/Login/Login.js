@@ -21,14 +21,15 @@ const Login = () => {
     };
 
     return (
-        <div className="position-relative background-div">
-            <div className="form-background">
-                <FormContainer>
-                    <h1>Sign In</h1>
+        <div className="landing-page-background pt-3 fs-4">
+            <div className="pt-5">
+                <FormContainer className="body-color ">
+                    <h1 className="mt-3 fw-bold">Sign In</h1>
                     <Form onSubmit={submitHandler}>
                         <Form.Group controlId="formUsername" className="my-3">
                             <Form.Label>Username</Form.Label>
                             <Form.Control
+                                className="body-color-white text-info"
                                 type="text"
                                 placeholder="Enter your username"
                                 value={email}
@@ -39,6 +40,7 @@ const Login = () => {
                         <Form.Group controlId="formPassword" className="my-3">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
+                                className="text-info"
                                 type="password"
                                 placeholder="Enter your password"
                                 value={password}

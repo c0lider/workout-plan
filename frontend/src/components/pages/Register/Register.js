@@ -1,10 +1,10 @@
 // src/components/Register.js
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import FormContainer from '../../layout/FormContainer/FormContainer';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// import axios from "axios";
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -25,14 +25,15 @@ const Register = () => {
     };
 
     return (
-        <div className="position-relative background-div">
-            <div className="form-background">
+        <div className="landing-page-background pt-3 fs-4">
+            <div className="pt-3 fw-bold">
                 <FormContainer>
-                    <h1>Sign Up</h1>
+                    <h1 className="mt-3">Sign Up</h1>
                     <Form onSubmit={submitHandler}>
                         <Form.Group controlId="name" className="my-3">
                             <Form.Label>Name</Form.Label>
                             <Form.Control
+                                className="text-info"
                                 type="text"
                                 placeholder="Enter name"
                                 value={name}
@@ -43,6 +44,7 @@ const Register = () => {
                         <Form.Group controlId="email" className="my-3">
                             <Form.Label>Email Address</Form.Label>
                             <Form.Control
+                                className="text-info"
                                 type="email"
                                 placeholder="Enter email"
                                 value={email}
@@ -53,6 +55,7 @@ const Register = () => {
                         <Form.Group controlId="birthday" className="my-3">
                             <Form.Label>Your birthday</Form.Label>
                             <Form.Control
+                                className="text-info"
                                 type="text"
                                 placeholder="Enter your birthday"
                                 value={birthday}
@@ -63,6 +66,7 @@ const Register = () => {
                         <Form.Group controlId="password" className="my-3">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
+                                className="text-info"
                                 type="password"
                                 placeholder="Enter password"
                                 value={password}
@@ -76,6 +80,7 @@ const Register = () => {
                         >
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control
+                                className="text-info"
                                 type="password"
                                 placeholder="Confirm password"
                                 value={confirmPassword}
