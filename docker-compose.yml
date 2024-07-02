@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+    frontend:
+        build: ./frontend
+        ports:
+            - '3000:3000'
+        volumes:
+            - ./frontend:/app
+            - /app/node_modules
+        environment:
+            - NODE_ENV=development
+
+    backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        ports:
+            - '8080:8080'
+        # volumes:
+        #     - ./backend:/app
+        #     - /app/build/libs
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/workout-plan-db
+            SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+            SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+            SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+            SPRING_JPA_HIBERNATE_DDL_AUTO: update
+            SPRING_DEVTOOLS_LIVERELOAD_ENABLED: 'true'
+        depends_on:
+            - database
+
+    database:
+        image: postgres:latest
+        environment:
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: workout-plan-db
+        ports:
+            - '5432:5432'
+        volumes:
+            - db-data:/var/lib/postgresql/data
+
+volumes:
+    db-data:
