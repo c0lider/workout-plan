@@ -45,7 +45,7 @@ To get started with the Workout Planner App, follow these steps:
 
 1. **Clone the Repository**: Clone this repository to your local machine using the following command:
    ```bash
-   git clone https://github.com/c0lider/workout-planner.git
+   git clone https://github.com/c0lider/workout-plan.git
    ```
 
 2. **Setup database**:
